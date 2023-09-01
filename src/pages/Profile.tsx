@@ -12,7 +12,7 @@ const useStyles = makeStyles({
 		height: 48,
 		padding: '0 30px',
 		'&:hover': {
-			background: '#FFFFFFFF',
+			background: '#FFF',
 		},
 	},
 });
