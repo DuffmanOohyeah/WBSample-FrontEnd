@@ -4,7 +4,7 @@ import { FormState } from '../../pages/Authentication';
 
 const useStyles = makeStyles((theme) => ({
 	forgotPasswordParagraph: {
-		color: '#FFFFFF',
+		color: '#FFF',
 		display: 'inline-block',
 		padding: '0 10px 0 0',
 	},
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 		display: 'inline-block',
 		textTransform: 'none',
 		backgroundColor: 'transparent',
-		color: `#FFFFFF`,
+		color: `#FFF`,
 		'&:hover': {
 			backgroundColor: 'transparent',
 		},

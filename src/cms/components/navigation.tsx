@@ -46,9 +46,7 @@ const Navigation: any = (props: Props) => {
 		currentUserInfo().then((result: any) => {
 			//console.log('getUser:', result);
 			const atts: any = result.attributes || {};
-			if (atts['sub']) {
-				userIdVar(atts['sub']);
-			}
+			if (atts['sub']) userIdVar(atts['sub']);
 			if (atts['email']) {
 				userEmailVar(atts['email']);
 				setEmail(atts['email']);
@@ -57,9 +55,7 @@ const Navigation: any = (props: Props) => {
 				userFirstNameVar(atts['custom:first_name']);
 				setFirstName(atts['custom:first_name']);
 			}
-			if (atts['custom:last_name']) {
-				userLastNameVar(atts['custom:last_name']);
-			}
+			if (atts['custom:last_name']) userLastNameVar(atts['custom:last_name']);
 		});
 	};
 
@@ -144,9 +140,7 @@ const Navigation: any = (props: Props) => {
 	};
 
 	const doAsyncs: any = async () => {
-		if (clientId) {
-			await addEventJoins(clientId);
-		}
+		if (clientId) await addEventJoins(clientId);
 	};
 
 	useEffect(() => {

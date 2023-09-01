@@ -56,9 +56,7 @@ const ListUsers: any = (props: Props) => {
 					gridInfo.push(info);
 				});
 
-				if (gridInfo.length) {
-					setDataRows(gridInfo);
-				}
+				if (gridInfo.length) setDataRows(gridInfo);
 			} catch (err: any) {}
 		});
 	};

@@ -124,9 +124,7 @@ const EditUser: any = (props: Props) => {
 				//console.log('data:', data);
 				const tmpGroups: string[] = [];
 				data.Groups.map((row: any) => tmpGroups.push(row.GroupName));
-				if (tmpGroups.length) {
-					setUserGroups(tmpGroups);
-				}
+				if (tmpGroups.length) setUserGroups(tmpGroups);
 				//console.log('tmpGroups:', tmpGroups);
 			});
 		});
@@ -208,9 +206,7 @@ const EditUser: any = (props: Props) => {
 			//console.log('getAllGroups:', data);
 			const tmpGroups: string[] = [];
 			data.Groups.map((row: any) => tmpGroups.push(row.GroupName));
-			if (tmpGroups.length) {
-				setAllGroups(tmpGroups);
-			}
+			if (tmpGroups.length) setAllGroups(tmpGroups);
 			//console.log('tmpGroups:', tmpGroups);
 		});
 	};
@@ -258,17 +254,11 @@ const EditUser: any = (props: Props) => {
 
 		joins.map((join: any) => {
 			tmpJoinIds.push(join.id);
-			if (join.client) {
-				tmpClientIds.push(join.client.id);
-			}
+			if (join.client) tmpClientIds.push(join.client.id);
 		});
 
-		if (tmpJoinIds.length) {
-			setUserClientJoinIds(tmpJoinIds);
-		}
-		if (tmpClientIds.length) {
-			setClientIds(tmpClientIds);
-		}
+		if (tmpJoinIds.length) setUserClientJoinIds(tmpJoinIds);
+		if (tmpClientIds.length) setClientIds(tmpClientIds);
 	};
 
 	const updateClients: any = async () => {

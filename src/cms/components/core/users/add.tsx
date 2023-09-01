@@ -182,9 +182,8 @@ const AddUser: any = (props: Props) => {
 			//console.log('getAllGroups:', data);
 			const tmpGroups: string[] = [];
 			data.Groups.map((row: any) => tmpGroups.push(row.GroupName));
-			if (tmpGroups.length) {
-				setAllGroups(tmpGroups);
-			}
+			if (tmpGroups.length) setAllGroups(tmpGroups);
+
 			//console.log('tmpGroups:', tmpGroups);
 		});
 	};

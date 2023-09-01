@@ -87,23 +87,16 @@ const EditWebinar: any = (props: Props) => {
 
 		switch (name) {
 			case 'webinar_name':
-				if (value && webinarInfo.session_id) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && webinarInfo.session_id) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 			case 'session_id':
-				if (value && webinarInfo.webinar_name) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && webinarInfo.webinar_name) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 			case 'webinar_type':
-				if (value) {
-					setShowTypeAttributes(true);
-				} else {
+				if (value) setShowTypeAttributes(true);
+				else {
 					setShowTypeAttributes(false);
 					//updateWebinarInfo('webinar_api_key', '');
 					//updateWebinarInfo('webinar_url', '');
@@ -130,9 +123,7 @@ const EditWebinar: any = (props: Props) => {
 			});
 		});
 
-		if (tmpSess.length) {
-			setSessions(tmpSess);
-		}
+		if (tmpSess.length) setSessions(tmpSess);
 	};
 
 	const getWebinarData: any = async () => {
@@ -155,9 +146,7 @@ const EditWebinar: any = (props: Props) => {
 				updatedAt: row.updatedAt,
 				createdAt: row.createdAt,
 			});
-			if (row.webinar_type) {
-				setShowTypeAttributes(true);
-			}
+			if (row.webinar_type) setShowTypeAttributes(true);
 		}
 	};
 

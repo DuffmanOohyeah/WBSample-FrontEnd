@@ -72,18 +72,14 @@ const Presenters: any = (props: Props) => {
 				if (presObj.profile_img) {
 					const getS3Obj: any = await getStorage(presObj.profile_img);
 					//console.log('getS3Obj:', getS3Obj);
-					if (getS3Obj.success) {
-						presObj.profile_img = getS3Obj.data;
-					}
+					if (getS3Obj.success) presObj.profile_img = getS3Obj.data;
 				}
 			} catch (err: any) {}
 
 			newArr.push(presObj);
 		}
 
-		if (newArr.length) {
-			setS3Presenters(newArr);
-		}
+		if (newArr.length) setS3Presenters(newArr);
 	};
 
 	useEffect(() => {

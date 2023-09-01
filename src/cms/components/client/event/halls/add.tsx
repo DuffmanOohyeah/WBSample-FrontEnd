@@ -96,11 +96,8 @@ const AddHall: any = (props: Props) => {
 
 		switch (name) {
 			case 'hall_name':
-				if (value /*&& hallInfo.sessionId*/) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value /*&& hallInfo.sessionId*/) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 			/*case 'sessionId':
 				if( value && hallInfo.hall_name ){ setShowSubmit(true); }

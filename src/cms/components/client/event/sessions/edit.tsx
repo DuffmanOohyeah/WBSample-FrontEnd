@@ -90,11 +90,8 @@ const EditSession: any = (props: Props) => {
 
 		switch (name) {
 			case 'session_name':
-				if (value.trim()) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value.trim()) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 		}
 	};
@@ -114,12 +111,9 @@ const EditSession: any = (props: Props) => {
 		let inpStartDt: string = sessionInfo.start_date;
 		let inpEndDt: string = sessionInfo.end_date;
 
-		if (!inpStartDt && startDateCopy) {
-			inpStartDt = startDateCopy;
-		}
-		if (!inpEndDt && endDateCopy) {
-			inpEndDt = endDateCopy;
-		}
+		if (!inpStartDt && startDateCopy) inpStartDt = startDateCopy;
+		if (!inpEndDt && endDateCopy) inpEndDt = endDateCopy;
+
 		/* end: set dates if incomplete */
 
 		const params: any = {

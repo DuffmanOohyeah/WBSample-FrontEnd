@@ -42,9 +42,7 @@ const ListClientTbls: any = (props: Props) => {
 				});
 			});
 
-			if (tmpArr.length) {
-				setDataRows(tmpArr);
-			}
+			if (tmpArr.length) setDataRows(tmpArr);
 		}
 	};
 

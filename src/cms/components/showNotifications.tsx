@@ -97,9 +97,7 @@ const ShowNotifications: any = (props: Props) => {
 		}
 		/* end: see if you're connected to them */
 
-		if (awaitingConnects) {
-			setNotificationCount(awaitingConnects);
-		}
+		if (awaitingConnects) setNotificationCount(awaitingConnects);
 
 		return rtnArr;
 	};
@@ -128,9 +126,7 @@ const ShowNotifications: any = (props: Props) => {
 
 						cogUser.UserAttributes.map((att: any) => {
 							let _name: string = att.Name.replace('custom:', '');
-							if (_name in attributes) {
-								attributes[_name] = att.Value;
-							}
+							if (_name in attributes) attributes[_name] = att.Value;
 						});
 
 						if (
@@ -145,9 +141,7 @@ const ShowNotifications: any = (props: Props) => {
 							/* start: get storage from s3 */
 							if (attributes.profile_img) {
 								const getS3Obj: any = await getStorage(attributes.profile_img);
-								if (getS3Obj.success) {
-									attributes.profile_img = getS3Obj.data;
-								}
+								if (getS3Obj.success) attributes.profile_img = getS3Obj.data;
 							}
 							/* end: get storage from s3 */
 							tmpAttendees.push(attributes);
@@ -157,9 +151,7 @@ const ShowNotifications: any = (props: Props) => {
 			}
 		} catch (err: any) {}
 		//console.log('tmpAttendees:', tmpAttendees);
-		if (tmpAttendees.length) {
-			setAwaitingConnects(tmpAttendees);
-		}
+		if (tmpAttendees.length) setAwaitingConnects(tmpAttendees);
 	};
 
 	const addToFaves: any = (attSub: string) => {
@@ -208,18 +200,10 @@ const ShowNotifications: any = (props: Props) => {
 			{awaitingConnects.map((row: any, idx: number) => {
 				let modulus: number = idx % 2;
 				let person: string = '';
-				if (row.title) {
-					person += row.title + '\xa0';
-				}
-				if (row.first_name) {
-					person += row.first_name + '\xa0';
-				}
-				if (row.last_name) {
-					person += row.last_name + '\xa0';
-				}
-				if (row.job_title) {
-					person += '\n' + row.job_title;
-				}
+				if (row.title) person += row.title + '\xa0';
+				if (row.first_name) person += row.first_name + '\xa0';
+				if (row.last_name) person += row.last_name + '\xa0';
+				if (row.job_title) person += '\n' + row.job_title;
 				//if( row.email ){ person += '\n' + createMailTo(row.email); }
 
 				return (

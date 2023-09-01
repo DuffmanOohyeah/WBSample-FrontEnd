@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 		height: '2rem',
 		top: '-20px',
 		left: '20px',
-		background: '#FFFFFF',
+		background: '#FFF',
 		padding: '0.625rem',
 		border: `1px solid ${theme.palette.primary.main}`,
 		borderRadius: '4px 4px 4px 4px',

@@ -82,9 +82,7 @@ const listTables: any = async (clientsOnly: boolean = true) => {
 			} else {
 				result.TableNames.map((name: string) => {
 					let abbr: string = name;
-					if (abbr.indexOf('Client') == 0) {
-						abbr = abbr.replace(/Client/, '');
-					}
+					if (abbr.indexOf('Client') == 0) abbr = abbr.replace(/Client/, '');
 					abbr = abbr.substring(0, abbr.indexOf('-'));
 					rtn.push({
 						abbr: abbr,

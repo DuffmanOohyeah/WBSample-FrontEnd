@@ -94,9 +94,7 @@ const Webinars: any = (props: Props) => {
 				setUserEvents(tmpEvts);
 			}*/
 
-			if (tmpGrps.length) {
-				setUserGroups(tmpGrps);
-			}
+			if (tmpGrps.length) setUserGroups(tmpGrps);
 		} catch (err: any) {}
 	};
 

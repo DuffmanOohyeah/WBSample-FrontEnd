@@ -94,11 +94,8 @@ const AddTeam: any = (props: Props) => {
 
 		switch (name) {
 			case 'email':
-				if (value && isEmailValid(value)) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && isEmailValid(value)) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 		}
 	};
@@ -235,13 +232,10 @@ const AddTeam: any = (props: Props) => {
 			//console.log('getAllGroups:', data);
 			const tmpGroups: string[] = [];
 			data.Groups.map((row: any) => {
-				if (row.GroupName !== 'SuperAdmin') {
-					tmpGroups.push(row.GroupName);
-				}
+				if (row.GroupName !== 'SuperAdmin') tmpGroups.push(row.GroupName);
 			});
-			if (tmpGroups.length) {
-				setAllCognitoGroups(tmpGroups);
-			}
+			if (tmpGroups.length) setAllCognitoGroups(tmpGroups);
+
 			//console.log('tmpGroups:', tmpGroups);
 		});
 	};

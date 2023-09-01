@@ -79,9 +79,8 @@ const TrueChat = (props: Props) => {
 
 			if (row.table_logo) {
 				const s3Obj: any = await getStorage(row.table_logo);
-				if (s3Obj.success) {
-					tblLogo = s3Obj.data;
-				}
+				if (s3Obj.success) tblLogo = s3Obj.data;
+
 				//console.log('tblLogo:', tblLogo);
 			}
 
@@ -93,9 +92,7 @@ const TrueChat = (props: Props) => {
 			});
 		}
 
-		if (tmpTbls.length) {
-			setTablesData(tmpTbls);
-		}
+		if (tmpTbls.length) setTablesData(tmpTbls);
 	};
 
 	const getSettings: any = async () => {
@@ -105,9 +102,7 @@ const TrueChat = (props: Props) => {
 		);
 		const settings1: any[] = result1.data.listSettings.items || [];
 		//console.log('settings1:', settings1);
-		if (settings1.length == 1) {
-			setPageName(settings1[0].value);
-		}
+		if (settings1.length == 1) setPageName(settings1[0].value);
 
 		const params2: any = { filter: { setting: { eq: 'chat_url' } } };
 		const result2: any = await API.graphql(
@@ -115,9 +110,7 @@ const TrueChat = (props: Props) => {
 		);
 		const settings2: any[] = result2.data.listSettings.items || [];
 		//console.log('settings2:', settings2);
-		if (settings2.length == 1) {
-			setChatUrl(settings2[0].value);
-		}
+		if (settings2.length == 1) setChatUrl(settings2[0].value);
 	};
 
 	const makeChatLink: any = (tableId: string) => {
@@ -153,9 +146,7 @@ const TrueChat = (props: Props) => {
 					{tablesData.map((row: any, idx: number) => {
 						let modulus: number = idx % 2;
 						let bgImg: string = `${process.env.PUBLIC_URL}/logo192.png`;
-						if (row.table_logo) {
-							bgImg = row.table_logo;
-						}
+						if (row.table_logo) bgImg = row.table_logo;
 
 						return (
 							<div key={idx}>

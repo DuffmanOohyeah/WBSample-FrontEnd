@@ -108,18 +108,12 @@ const AddPresenter: any = (props: Props) => {
 
 		switch (name) {
 			case 'first_name':
-				if (value && presenterInfo.last_name) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && presenterInfo.last_name) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 			case 'last_name':
-				if (value && presenterInfo.first_name) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && presenterInfo.first_name) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 		}
 	};

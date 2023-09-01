@@ -82,9 +82,8 @@ const Presenters: any = (props: Props) => {
 			const tmpGrps: string[] = [];
 
 			result.data.listUserEventJoins.items.map((row: any) => {
-				if (row.event && row.event.id) {
-					tmpEvts.push(row.event.id);
-				}
+				if (row.event && row.event.id) tmpEvts.push(row.event.id);
+
 				row.groups.items.map((group: any) => {
 					tmpGrps.push(group.name);
 				});
@@ -97,9 +96,7 @@ const Presenters: any = (props: Props) => {
 				setUserEvents(tmpEvts);
 			}*/
 
-			if (tmpGrps.length) {
-				setUserGroups(tmpGrps);
-			}
+			if (tmpGrps.length) setUserGroups(tmpGrps);
 		} catch (err: any) {}
 	};
 

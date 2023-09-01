@@ -83,9 +83,7 @@ const MyAgenda: any = (props: Props) => {
 
 				//console.log('tmpDays:', tmpDays);
 
-				if (tmpDays.length) {
-					setEventDates(tmpDays);
-				}
+				if (tmpDays.length) setEventDates(tmpDays);
 			}
 			/* end: parse event dates */
 		} catch (err: any) {}
@@ -111,12 +109,10 @@ const MyAgenda: any = (props: Props) => {
 		const tmpPresenterIds: string[] = [];
 
 		result.data.listFavourites.items.map((row: any) => {
-			if (row.session_id && tmpSessionIds.indexOf(row.session_id) == -1) {
+			if (row.session_id && tmpSessionIds.indexOf(row.session_id) == -1)
 				tmpSessionIds.push(row.session_id);
-			}
-			if (row.presenter_id && tmpPresenterIds.indexOf(row.presenter_id) == -1) {
+			if (row.presenter_id && tmpPresenterIds.indexOf(row.presenter_id) == -1)
 				tmpPresenterIds.push(row.presenter_id);
-			}
 		});
 
 		if (tmpSessionIds.length) {
@@ -140,9 +136,7 @@ const MyAgenda: any = (props: Props) => {
 			tmpSess.push(result.data.getSession);
 		}
 
-		if (tmpSess.length) {
-			setFaveSessions(tmpSess);
-		}
+		if (tmpSess.length) setFaveSessions(tmpSess);
 	};
 
 	const getPresenterData: any = async (arr: string[]) => {
@@ -174,9 +168,7 @@ const MyAgenda: any = (props: Props) => {
 				if (presObj.profile_img) {
 					const getS3Obj: any = await getStorage(presObj.profile_img);
 					//console.log('getS3Obj:', getS3Obj);
-					if (getS3Obj.success) {
-						presObj.profile_img = getS3Obj.data;
-					}
+					if (getS3Obj.success) presObj.profile_img = getS3Obj.data;
 				}
 			} catch (err: any) {}
 
@@ -184,9 +176,7 @@ const MyAgenda: any = (props: Props) => {
 			tmpPres.push(presObj);
 		}
 
-		if (tmpPres.length) {
-			setFavePresenters(tmpPres);
-		}
+		if (tmpPres.length) setFavePresenters(tmpPres);
 	};
 
 	useEffect(() => {

@@ -69,9 +69,7 @@ const ListSessions: any = (props: Props) => {
 			});
 		});
 
-		if (tmpSess.length) {
-			setDataRows(tmpSess);
-		}
+		if (tmpSess.length) setDataRows(tmpSess);
 	};
 
 	const doRedirect: any = (id: string) =>
@@ -95,16 +93,13 @@ const ListSessions: any = (props: Props) => {
 			if (row.event && row.event.id == eventId) {
 				//console.log('row:', row);
 				row.groups.items.map((grp: any) => {
-					if (tmpGroups.indexOf(grp.name) == -1 && grp.active) {
+					if (tmpGroups.indexOf(grp.name) == -1 && grp.active)
 						tmpGroups.push(grp.name);
-					}
 				});
 			}
 		});
 
-		if (tmpGroups.length) {
-			setGroupNames(tmpGroups);
-		}
+		if (tmpGroups.length) setGroupNames(tmpGroups);
 	};
 
 	useEffect(() => {

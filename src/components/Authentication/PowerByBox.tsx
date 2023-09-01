@@ -7,7 +7,7 @@ interface PowerByBoxProps {
 
 const useStyles = makeStyles((theme) => ({
 	title: {
-		color: '#FFFFFF',
+		color: '#FFF',
 	},
 }));
 function PowerByBox(props: PowerByBoxProps): ReactElement {

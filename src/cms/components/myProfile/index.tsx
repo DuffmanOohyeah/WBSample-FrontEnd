@@ -153,9 +153,7 @@ const MyProfile: any = (props: Props) => {
 				//console.log('data:', data);
 				const tmpGroups: string[] = [];
 				data.Groups.map((row: any) => tmpGroups.push(row.GroupName));
-				if (tmpGroups.length) {
-					setUserGroups(tmpGroups);
-				}
+				if (tmpGroups.length) setUserGroups(tmpGroups);
 				//console.log('tmpGroups:', tmpGroups);
 			});
 		});
@@ -166,9 +164,7 @@ const MyProfile: any = (props: Props) => {
 			//console.log('getAllGroups:', data);
 			const tmpGroups: string[] = [];
 			data.Groups.map((row: any) => tmpGroups.push(row.GroupName));
-			if (tmpGroups.length) {
-				setAllGroups(tmpGroups);
-			}
+			if (tmpGroups.length) setAllGroups(tmpGroups);
 			//console.log('tmpGroups:', tmpGroups);
 		});
 	};
@@ -177,9 +173,7 @@ const MyProfile: any = (props: Props) => {
 		const result: any = await API.graphql(graphqlOperation(listClients));
 		//console.log('result:', result);
 		const clients: any[] = result.data.listClients.items || [];
-		if (clients.length) {
-			setAllClients(clients);
-		}
+		if (clients.length) setAllClients(clients);
 	};
 
 	const getClientJoins: any = async () => {
@@ -198,15 +192,11 @@ const MyProfile: any = (props: Props) => {
 
 		joins.map((join: any) => {
 			//tmpJoinIds.push(join.id);
-			if (join.client) {
-				tmpClientIds.push(join.client.id);
-			}
+			if (join.client) tmpClientIds.push(join.client.id);
 		});
 
 		//if( tmpJoinIds.length ){ setUserClientJoinIds(tmpJoinIds); }
-		if (tmpClientIds.length) {
-			setClientIds(tmpClientIds);
-		}
+		if (tmpClientIds.length) setClientIds(tmpClientIds);
 	};
 
 	const onAttChange: any = (evt: any) => {
@@ -216,18 +206,12 @@ const MyProfile: any = (props: Props) => {
 
 		switch (name) {
 			case 'first_name':
-				if (value && userAtts.last_name) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && userAtts.last_name) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 			case 'last_name':
-				if (value && userAtts.first_name) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && userAtts.first_name) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 		}
 	};
@@ -245,9 +229,7 @@ const MyProfile: any = (props: Props) => {
 
 		sortClientsByName(allClients).map((row: any) => {
 			// /console.log('row:', row);
-			if (clientIds.indexOf(row.id) > -1) {
-				clientList += row.full_name + '\n';
-			}
+			if (clientIds.indexOf(row.id) > -1) clientList += row.full_name + '\n';
 		});
 
 		return clientList;
@@ -257,9 +239,7 @@ const MyProfile: any = (props: Props) => {
 		let groupList: string = '';
 
 		allGroups.sort().map((grp: string) => {
-			if (userGroups.indexOf(grp) > -1) {
-				groupList += grp + '\n';
-			}
+			if (userGroups.indexOf(grp) > -1) groupList += grp + '\n';
 		});
 
 		return groupList;
@@ -346,10 +326,7 @@ const MyProfile: any = (props: Props) => {
 	const isSubmitBtnVisible: any = () => {
 		let show: boolean = false;
 
-		if (userAtts.first_name && userAtts.last_name) {
-			show = true;
-		}
-
+		if (userAtts.first_name && userAtts.last_name) show = true;
 		const pwdNl: any = document.getElementsByName('changePwd');
 		const pwdElem: any = Array.prototype.slice.call(pwdNl)[0];
 
@@ -363,24 +340,16 @@ const MyProfile: any = (props: Props) => {
 				const confElem: any = Array.prototype.slice.call(confPwd)[0];
 
 				if (validatePwd(newElem.value)) {
-					if (newElem.value === confElem.value) {
-						show = true;
-					} else {
-						show = false;
-					}
-				} else {
-					show = false;
-				}
+					if (newElem.value === confElem.value) show = true;
+					else show = false;
+				} else show = false;
 			} catch (err: any) {
 				//console.log('err:', err.message);
 			}
 		}
 
-		if (show) {
-			setShowSubmit(true);
-		} else {
-			setShowSubmit(false);
-		}
+		if (show) setShowSubmit(true);
+		else setShowSubmit(false);
 	};
 
 	const handlePwd: any = (evt: any) => {

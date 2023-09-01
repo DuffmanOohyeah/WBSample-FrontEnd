@@ -6,9 +6,7 @@ const currentCredentials: any = async () => {
 	try {
 		const cCreds = await Auth.currentCredentials();
 		const eCreds = await Auth.essentialCredentials(cCreds); // Compact version of credentials
-		if (eCreds) {
-			rtn = eCreds;
-		}
+		if (eCreds) rtn = eCreds;
 
 		console.log('cCreds:', cCreds);
 		console.log('eCreds:', eCreds);

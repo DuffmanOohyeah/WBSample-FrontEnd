@@ -56,9 +56,7 @@ const ListTables: any = (props: Props) => {
 			}
 		});
 
-		if (tmpTables.length) {
-			setDataRows(sortEvents(tmpTables));
-		}
+		if (tmpTables.length) setDataRows(sortEvents(tmpTables));
 	};
 
 	useEffect(() => {

@@ -54,9 +54,8 @@ const Team: any = (props: Props) => {
 				break;
 			case 'error':
 				let text: string = 'There was an error.';
-				if (parsed.msg) {
-					text += ` (${parsed.msg})`;
-				}
+				if (parsed.msg) text += ` (${parsed.msg})`;
+
 				setAlert({
 					show: true,
 					severity: 'error',
@@ -84,9 +83,7 @@ const Team: any = (props: Props) => {
 			const tmpGrps: string[] = [];
 
 			result.data.listUserEventJoins.items.map((row: any) => {
-				if (row.event && row.event.id) {
-					tmpEvts.push(row.event.id);
-				}
+				if (row.event && row.event.id) tmpEvts.push(row.event.id);
 				row.groups.items.map((group: any) => {
 					tmpGrps.push(group.name);
 				});
@@ -99,9 +96,7 @@ const Team: any = (props: Props) => {
 				setUserEvents(tmpEvts);
 			}*/
 
-			if (tmpGrps.length) {
-				setUserGroups(tmpGrps);
-			}
+			if (tmpGrps.length) setUserGroups(tmpGrps);
 		} catch (err: any) {}
 	};
 

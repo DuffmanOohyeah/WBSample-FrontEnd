@@ -94,20 +94,15 @@ const EditEvent: any = (props: Props) => {
 
 		switch (name) {
 			case 'event_name':
-				if (!value.length) {
-					setShowSubmit(false);
-				} else {
-					setShowSubmit(true);
-				}
+				if (!value.length) setShowSubmit(false);
+				else setShowSubmit(true);
 				break;
 			case 'other_domains':
 				const tmpVals: string[] = [];
 
 				value.split(',').map((val: string) => {
 					val = val.trim();
-					if (val.length) {
-						tmpVals.push(val);
-					}
+					if (val.length) tmpVals.push(val);
 				});
 
 				value = tmpVals; // make the value an array
@@ -211,9 +206,7 @@ const EditEvent: any = (props: Props) => {
 				createdAt: row.createdAt,
 				updatedAt: row.updatedAt,
 			});
-			if (row.event_logo) {
-				setOrigImg(row.event_logo);
-			}
+			if (row.event_logo) setOrigImg(row.event_logo);
 		} catch (err: any) {}
 	};
 

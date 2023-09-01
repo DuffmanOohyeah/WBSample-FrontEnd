@@ -53,9 +53,7 @@ const useStyles: any = makeStyles((theme: Theme) =>
 
 const ShowEventCards: any = (props: Props) => {
 	const tmpFaveEvts: string[] = [];
-	if (props.faveArr) {
-		props.faveArr.map((row: any) => tmpFaveEvts.push(row.id));
-	}
+	if (props.faveArr) props.faveArr.map((row: any) => tmpFaveEvts.push(row.id));
 
 	const classes: any = useStyles();
 
@@ -71,9 +69,7 @@ const ShowEventCards: any = (props: Props) => {
 						let modulus: number = idx % 2;
 						//let cn: string = 'align' + (modulus ? 'Right' : 'Left');
 						let bgImg: string = `${process.env.PUBLIC_URL}/event_icon_2.png`;
-						if (row.event_logo) {
-							bgImg = row.event_logo; // should be an s3 img path
-						}
+						if (row.event_logo) bgImg = row.event_logo; // should be an s3 img path
 
 						return (
 							<div key={idx}>

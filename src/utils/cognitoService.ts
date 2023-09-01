@@ -48,9 +48,7 @@ const listUserPools: any = async () => {
 		};
 		const provider: any = await getProvider();
 		const result: any = provider.listUserPools(params).promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		//console.log('err:', err);
 	}
@@ -75,9 +73,7 @@ const listUsers: any = async (filter: string = '', limit: number = 60) => {
 		const provider: any = await getProvider();
 
 		const result: any = provider.listUsers(params).promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		//console.log('err:', err);
 	}
@@ -95,9 +91,7 @@ const adminGetUser: any = async (userName: string) => {
 		};
 		const provider: any = await getProvider();
 		const result: any = provider.adminGetUser(params).promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		//console.log('err:', err);
 	}
@@ -139,9 +133,7 @@ const adminCreateUser: any = async (userName: string, createAtts: any) => {
 		params['Username'] = userName;
 		const provider: any = await getProvider();
 		const result: any = provider.adminCreateUser(params).promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		//console.log('err:', err);
 	}
@@ -157,9 +149,7 @@ const adminSetUserPassword: any = async (pwdAtts: any) => {
 		const provider: any = await getProvider();
 		const result: any = provider.adminSetUserPassword(params).promise();
 		//console.log('adminSetUserPassword:', result);
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		//console.log('err:', err);
 	}
@@ -176,9 +166,7 @@ const adminDisableUser: any = async (userName: string) => {
 		};
 		const provider: any = await getProvider();
 		const result: any = provider.adminDisableUser(params).promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		//console.log('err:', err);
 	}
@@ -195,9 +183,7 @@ const adminEnableUser: any = async (userName: string) => {
 		};
 		const provider: any = await getProvider();
 		const result: any = provider.adminEnableUser(params).promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		//console.log('err:', err);
 	}
@@ -214,9 +200,7 @@ const adminDeleteUser: any = async (userName: string) => {
 		};
 		const provider: any = await getProvider();
 		const result: any = provider.adminDeleteUser(params).promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		//console.log('err:', err);
 	}
@@ -232,9 +216,8 @@ const listGroups: any = async () => {
 		};
 		const provider: any = await getProvider();
 		const result: any = provider.listGroups(params).promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
+
 		//console.log('result:', result);
 	} catch (err: any) {
 		//console.log('err:', err);
@@ -373,9 +356,7 @@ const adminRemoveUserFromGroup: any = async (userName: string) => {
 
 			if (grpName !== 'SuperAdmin') {
 				const result: any = provider.adminRemoveUserFromGroup(params).promise();
-				if (result) {
-					rtn = result;
-				}
+				if (result) rtn = result;
 			}
 		}
 	} catch (err: any) {
@@ -406,9 +387,7 @@ const addCustomAttributes: any = async (names: string[] = []) => {
 		};
 		const provider: any = await getProvider();
 		const result: any = await provider.addCustomAttributes(params).promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		//console.log('err:', err);
 	}

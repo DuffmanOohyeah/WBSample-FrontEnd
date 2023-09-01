@@ -9,34 +9,24 @@ const getFilePath: any = (category: string, categoryId: string) => {
 		case 'client':
 		case 'clients':
 			id = categoryId || clientIdVar();
-			if (id) {
-				path += `clients/${id}/`;
-			}
+			if (id) path += `clients/${id}/`;
 			break;
 		case 'event':
 		case 'events':
-			if (id) {
-				path += `events/${id}/`;
-			}
+			if (id) path += `events/${id}/`;
 			break;
 		case 'presenter':
 		case 'presenters':
-			if (id) {
-				path += `presenters/${id}/`;
-			}
+			if (id) path += `presenters/${id}/`;
 			break;
 		case 'user':
 		case 'users':
 			id = categoryId || userIdVar();
-			if (id) {
-				path += `users/${id}/`;
-			}
+			if (id) path += `users/${id}/`;
 			break;
 		case 'table':
 		case 'tables':
-			if (id) {
-				path += `tables/${id}/`;
-			}
+			if (id) path += `tables/${id}/`;
 			break;
 	}
 
@@ -63,9 +53,7 @@ const putStorage: any = async (
 		let name: string = getFilePath(category, categoryId) + fileObj.name;
 		let type: string = fileObj.type || '';
 
-		if (type) {
-			args['contentType'] = type;
-		}
+		if (type) args['contentType'] = type;
 
 		const result: any = await Storage.put(name, fileObj, args); // returns obj like: {key: 'file.txt'}
 		//console.log('put:', result);

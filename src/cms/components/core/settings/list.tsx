@@ -46,9 +46,7 @@ const ListSettings: any = (props: Props) => {
 				});
 			});
 
-			if (gridInfo.length) {
-				setDataRows(gridInfo);
-			}
+			if (gridInfo.length) setDataRows(gridInfo);
 		} catch (err: any) {}
 	};
 

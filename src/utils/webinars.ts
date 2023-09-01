@@ -26,11 +26,8 @@ const filterWebinars: any = (type: string) => {
 const sortWebinars: any = () => {
 	return getWebinars().sort((a: any, b: any) => {
 		let rtn: number = 0;
-		if (a.type < b.type) {
-			rtn = -1;
-		} else if (a.type > b.type) {
-			rtn = 1;
-		}
+		if (a.type < b.type) rtn = -1;
+		else if (a.type > b.type) rtn = 1;
 		return rtn;
 	});
 };

@@ -76,9 +76,8 @@ const Attendees: any = (props: Props) => {
 				if (
 					tmpSubs.indexOf(join.cognito_sub) ==
 					-1 /*&& join.cognito_sub !== userId*/
-				) {
+				)
 					tmpSubs.push(join.cognito_sub);
-				}
 			}
 		});
 
@@ -108,9 +107,7 @@ const Attendees: any = (props: Props) => {
 
 					result.UserAttributes.map((att: any) => {
 						let _name: string = att.Name.replace('custom:', '');
-						if (_name in attributes) {
-							attributes[_name] = att.Value;
-						}
+						if (_name in attributes) attributes[_name] = att.Value;
 					});
 
 					if (
@@ -125,9 +122,7 @@ const Attendees: any = (props: Props) => {
 						/* start: get storage from s3 */
 						if (attributes.profile_img) {
 							const getS3Obj: any = await getStorage(attributes.profile_img);
-							if (getS3Obj.success) {
-								attributes.profile_img = getS3Obj.data;
-							}
+							if (getS3Obj.success) attributes.profile_img = getS3Obj.data;
 						}
 						/* end: get storage from s3 */
 						tmpAttendees.push(attributes);
@@ -138,9 +133,8 @@ const Attendees: any = (props: Props) => {
 			}
 		}
 
-		if (tmpAttendees.length) {
-			setAttendees(tmpAttendees);
-		}
+		if (tmpAttendees.length) setAttendees(tmpAttendees);
+
 		//console.log('tmpAttendees:', tmpAttendees);
 	};
 
@@ -162,16 +156,13 @@ const Attendees: any = (props: Props) => {
 		const tmpAttendeeSubs: string[] = [];
 
 		faves.map((fave: any) => {
-			if (tmpAttendeeSubs.indexOf(fave.attendee_cognito_sub) == -1) {
+			if (tmpAttendeeSubs.indexOf(fave.attendee_cognito_sub) == -1)
 				tmpAttendeeSubs.push(fave.attendee_cognito_sub);
-			}
 		});
 
 		//console.log('tmpAttendeeSubs:', tmpAttendeeSubs);
 
-		if (tmpAttendeeSubs.length) {
-			setFaveSubs(tmpAttendeeSubs);
-		}
+		if (tmpAttendeeSubs.length) setFaveSubs(tmpAttendeeSubs);
 	};
 
 	const updateFaveSubs: any = (value: string) => {
@@ -184,9 +175,7 @@ const Attendees: any = (props: Props) => {
 	const removeFaveSubs: any = (value: string) => {
 		const newFaves: string[] = [];
 		faveSubs.map((fave: string) => {
-			if (fave !== value) {
-				newFaves.push(fave);
-			}
+			if (fave !== value) newFaves.push(fave);
 		});
 		//console.log('removeFaveSubs:', newFaves);
 		setFaveSubs(newFaves);
@@ -254,18 +243,10 @@ const Attendees: any = (props: Props) => {
 			{attendees.map((row: any, idx: number) => {
 				let modulus: number = idx % 2;
 				let person: string = '';
-				if (row.title) {
-					person += row.title + '\xa0';
-				}
-				if (row.first_name) {
-					person += row.first_name + '\xa0';
-				}
-				if (row.last_name) {
-					person += row.last_name + '\xa0';
-				}
-				if (row.job_title) {
-					person += '\n' + row.job_title;
-				}
+				if (row.title) person += row.title + '\xa0';
+				if (row.first_name) person += row.first_name + '\xa0';
+				if (row.last_name) person += row.last_name + '\xa0';
+				if (row.job_title) person += '\n' + row.job_title;
 				//if( row.email ){ person += '\n' + createMailTo(row.email); }
 
 				return (

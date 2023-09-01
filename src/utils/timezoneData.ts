@@ -1265,9 +1265,7 @@ const filterZoneByAbbr: any = (abbr: string, rtnText: boolean = true) => {
 
 	if (arr.length) {
 		rtn = arr[0]; // full zone object
-		if (rtnText) {
-			rtn = rtn.text;
-		}
+		if (rtnText) rtn = rtn.text;
 	}
 
 	return rtn;

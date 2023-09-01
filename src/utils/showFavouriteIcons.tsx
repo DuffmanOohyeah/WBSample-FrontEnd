@@ -43,9 +43,8 @@ const FaveIcons: any = (props: Props) => {
 			graphqlOperation(listFavourites, params)
 		);
 		//console.log('result:', result);
-		if (result.data.listFavourites.items.length) {
+		if (result.data.listFavourites.items.length)
 			setFavouriteId(result.data.listFavourites.items[0].id);
-		}
 	};
 
 	const addToFaves: any = async (evt: any) => {
@@ -78,9 +77,9 @@ const FaveIcons: any = (props: Props) => {
 			graphqlOperation(createFavourite, params)
 		);
 		//console.log('result:', result);
-		if (result.data.createFavourite) {
+		if (result.data.createFavourite)
 			setFavouriteId(result.data.createFavourite.id);
-		}
+
 		/* end: add to faves table */
 	};
 

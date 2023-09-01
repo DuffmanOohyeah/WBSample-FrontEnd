@@ -67,9 +67,7 @@ const Event: any = (props: Props) => {
 	const getImg: any = () => {
 		getStorage(event.event_logo).then((result: any) => {
 			//console.log('result:', result);
-			if (result.success) {
-				setS3Img(result.data);
-			}
+			if (result.success) setS3Img(result.data);
 		});
 	};
 

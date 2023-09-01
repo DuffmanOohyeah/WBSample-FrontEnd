@@ -51,9 +51,7 @@ const ListStages: any = (props: Props) => {
 			});
 		});
 
-		if (tmpStages.length) {
-			setDataRows(tmpStages);
-		}
+		if (tmpStages.length) setDataRows(tmpStages);
 	};
 
 	useEffect(() => {

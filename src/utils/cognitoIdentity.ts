@@ -60,9 +60,7 @@ const listIds: any = async () => {
 		};
 		const result: any = await getCognitoId().listIdentities(params).promise();
 		//console.log('result:', result);
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		rtn = err;
 	}
@@ -78,9 +76,7 @@ const listIdPools: any = async () => {
 		const result: any = await getCognitoId()
 			.listIdentityPools(params)
 			.promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		rtn = err;
 	}
@@ -96,9 +92,7 @@ const descIdPool: any = async () => {
 		const result: any = await getCognitoId()
 			.describeIdentityPool(params)
 			.promise();
-		if (result) {
-			rtn = result;
-		}
+		if (result) rtn = result;
 	} catch (err: any) {
 		rtn = err;
 	}

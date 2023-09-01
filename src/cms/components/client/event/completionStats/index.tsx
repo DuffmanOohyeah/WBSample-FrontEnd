@@ -132,9 +132,7 @@ const EventCompletionStats: any = (props: Props) => {
 			const session: any = sessions[idx];
 			if (session.id) {
 				let hasPres: boolean = await getEvtPresenters(session.id);
-				if (hasPres) {
-					break;
-				}
+				if (hasPres) break;
 			}
 		}
 		/* end: get presenters */
@@ -144,9 +142,7 @@ const EventCompletionStats: any = (props: Props) => {
 			const session: any = sessions[idx];
 			if (session.id) {
 				let hasStage: boolean = await getEvtStages(session.id);
-				if (hasStage) {
-					break;
-				}
+				if (hasStage) break;
 			}
 		}
 		/* end: get stages */
@@ -156,9 +152,7 @@ const EventCompletionStats: any = (props: Props) => {
 			const session: any = sessions[idx];
 			if (session.id) {
 				let hasWebinar: boolean = await getEvtWebinars(session.id);
-				if (hasWebinar) {
-					break;
-				}
+				if (hasWebinar) break;
 			}
 		}
 		/* end: get webinars */

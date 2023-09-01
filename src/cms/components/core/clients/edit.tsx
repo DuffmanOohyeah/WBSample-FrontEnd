@@ -68,11 +68,8 @@ const EditClient: any = (props: Props) => {
 		switch (evt.target.name) {
 			case 'full_name':
 			case 'friendly_name':
-				if (!evt.target.value.length) {
-					setShowSubmit(false);
-				} else {
-					setShowSubmit(true);
-				}
+				if (!evt.target.value.length) setShowSubmit(false);
+				else setShowSubmit(true);
 				break;
 		}
 	};
@@ -162,18 +159,14 @@ const EditClient: any = (props: Props) => {
 				createdAt: row.createdAt,
 				updatedAt: row.updatedAt,
 			});
-			if (row.logo) {
-				setOrigImg(row.logo);
-			}
+			if (row.logo) setOrigImg(row.logo);
 		} catch (err: any) {}
 	};
 
 	const parseDate: any = (date: any) => {
 		let rtn: string = 'n/a';
 		//console.log('date:', `${date} - ${moment(date).isValid()}`);
-		if (moment(date).isValid()) {
-			rtn = moment(date).format(dtFormat);
-		}
+		if (moment(date).isValid()) rtn = moment(date).format(dtFormat);
 		return rtn;
 	};
 

@@ -53,11 +53,8 @@ const AddSetting: any = (props: Props) => {
 
 		switch (name) {
 			case 'setting':
-				if (!value.length) {
-					setShowSubmit(false);
-				} else {
-					setShowSubmit(true);
-				}
+				if (!value.length) setShowSubmit(false);
+				else setShowSubmit(true);
 				break;
 		}
 	};
@@ -89,9 +86,7 @@ const AddSetting: any = (props: Props) => {
 	const parseDate: any = (date: any) => {
 		let rtn: string = 'n/a';
 		//console.log('date:', `${date} - ${moment(date).isValid()}`);
-		if (moment(date).isValid()) {
-			rtn = moment(date).format(dtFormat);
-		}
+		if (moment(date).isValid()) rtn = moment(date).format(dtFormat);
 		return rtn;
 	};
 

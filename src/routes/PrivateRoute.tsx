@@ -11,9 +11,6 @@ export default function ProtectedRoute({
 	authenticationPath,
 	...routeProps
 }: ProtectedRouteProps): ReactElement {
-	if (isAuthenticated) {
-		return <Route {...routeProps} />;
-	} else {
-		return <Redirect to={{ pathname: authenticationPath }} />;
-	}
+	if (isAuthenticated) return <Route {...routeProps} />;
+	else return <Redirect to={{ pathname: authenticationPath }} />;
 }

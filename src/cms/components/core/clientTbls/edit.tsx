@@ -77,18 +77,14 @@ const EditClientTbl: any = (props: Props) => {
 
 		switch (name) {
 			case 'readUnits':
-				if (intVal > -1 && intVal !== tableInfo.readUnits_orig) {
+				if (intVal > -1 && intVal !== tableInfo.readUnits_orig)
 					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				else setShowSubmit(false);
 				break;
 			case 'writeUnits':
-				if (intVal > -1 && intVal !== tableInfo.writeUnits_orig) {
+				if (intVal > -1 && intVal !== tableInfo.writeUnits_orig)
 					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				else setShowSubmit(false);
 				break;
 		}
 	};
@@ -112,9 +108,7 @@ const EditClientTbl: any = (props: Props) => {
 	const parseDate: any = (date: any) => {
 		let rtn: string = 'n/a';
 		//console.log('date:', `${date} - ${moment(date).isValid()}`);
-		if (moment(date).isValid()) {
-			rtn = moment(date).format(dtFormat);
-		}
+		if (moment(date).isValid()) rtn = moment(date).format(dtFormat);
 		return rtn;
 	};
 
@@ -138,9 +132,8 @@ const EditClientTbl: any = (props: Props) => {
 				tblObj['readUnits_orig'] = tblObj['readUnits'];
 				tblObj['writeUnits_orig'] = tblObj['writeUnits'];
 			}
-			if (obj.BillingModeSummary.BillingMode) {
+			if (obj.BillingModeSummary.BillingMode)
 				tblObj['billingMode'] = obj.BillingModeSummary.BillingMode;
-			}
 		}
 
 		setTableInfo(tblObj);

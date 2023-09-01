@@ -80,9 +80,7 @@ const Cms: any = (props: Props) => {
 
 		//console.log('tmpGrps:', tmpGrps);
 
-		if (tmpGrps.length) {
-			setEvtGroups(tmpGrps);
-		}
+		if (tmpGrps.length) setEvtGroups(tmpGrps);
 	};
 
 	useEffect(() => {

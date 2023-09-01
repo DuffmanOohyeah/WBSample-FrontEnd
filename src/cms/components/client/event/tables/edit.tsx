@@ -86,18 +86,12 @@ const EditTable: any = (props: Props) => {
 
 		switch (name) {
 			case 'table_name':
-				if (value && tableInfo.event_id) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && tableInfo.event_id) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 			case 'event_id':
-				if (value && tableInfo.table_name) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && tableInfo.table_name) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 		}
 	};
@@ -125,9 +119,8 @@ const EditTable: any = (props: Props) => {
 
 	const saveTableData: any = (imgName: string) => {
 		let capacity: number = 8;
-		if (tableInfo.capacity) {
-			capacity = parseInt(tableInfo.capacity);
-		}
+		if (tableInfo.capacity) capacity = parseInt(tableInfo.capacity);
+
 		imgName = imgName || tableInfo.table_logo;
 
 		const params: any = {
@@ -164,9 +157,7 @@ const EditTable: any = (props: Props) => {
 				table_logo: row.table_logo,
 			});
 
-			if (row.table_logo) {
-				setOrigImg(row.table_logo);
-			}
+			if (row.table_logo) setOrigImg(row.table_logo);
 		} catch (err: any) {}
 	};
 

@@ -75,11 +75,8 @@ const AddStage: any = (props: Props) => {
 
 		switch (name) {
 			case 'stage_name':
-				if (value) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 		}
 	};
@@ -102,9 +99,7 @@ const AddStage: any = (props: Props) => {
 			});
 		});
 
-		if (tmpSess.length) {
-			setSessions(tmpSess);
-		}
+		if (tmpSess.length) setSessions(tmpSess);
 	};
 
 	const saveStageData: any = () => {

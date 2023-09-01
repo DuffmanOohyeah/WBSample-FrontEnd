@@ -63,9 +63,8 @@ function LoginCard(props: loginCardProps): ReactElement {
 			})
 			.catch((error) => {
 				setLoading(false);
-				if (error.code === 'UserNotConfirmedException') {
+				if (error.code === 'UserNotConfirmedException')
 					changeFormState(FormState.ConfirmSignUp);
-				}
 				if (error.code === 'UserNotFoundException') {
 					setAlert('User is not exist , Please Create New Account');
 					setOpen(true);
@@ -80,9 +79,7 @@ function LoginCard(props: loginCardProps): ReactElement {
 	};
 
 	useEffect(() => {
-		if (isLoggedIn) {
-			history.push('/');
-		}
+		if (isLoggedIn) history.push('/');
 		changeCardHeightAndWidth(22, 20);
 	}, [history, isLoggedIn]); // eslint-disable-line react-hooks/exhaustive-deps
 

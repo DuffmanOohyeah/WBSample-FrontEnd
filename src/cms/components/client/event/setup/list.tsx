@@ -84,9 +84,7 @@ const ListEvents: any = (props: Props) => {
 			});
 		});
 
-		if (tmpArr.length) {
-			setDataRows(tmpArr);
-		}
+		if (tmpArr.length) setDataRows(tmpArr);
 	};
 
 	const doRedirect: any = (id: string) =>

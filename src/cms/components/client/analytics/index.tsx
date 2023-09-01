@@ -113,13 +113,12 @@ const Analytics = (props: Props) => {
 
 		/* start: create date x axis */
 		let first: any = moment(new Date()).add(-6, 'months'); // set default
-		if (events[0].start_date) {
-			first = moment(events[0].start_date);
-		}
+		if (events[0].start_date) first = moment(events[0].start_date);
+
 		let last: any = moment(new Date()).add(6, 'months'); // set default
-		if (events[events.length - 1].start_date) {
+		if (events[events.length - 1].start_date)
 			last = moment(events[events.length - 1].start_date);
-		}
+
 		let monthDiff: number = last.diff(first, 'months');
 		const xArr: any[] = [first.format(dtFormat)];
 
@@ -134,9 +133,8 @@ const Analytics = (props: Props) => {
 		}
 
 		xArr.push(last.format(dtFormat));
-		if (xArr.length) {
-			setXAxis(xArr);
-		}
+		if (xArr.length) setXAxis(xArr);
+
 		//console.log('xArr:', xArr);
 		/* end: create date x axis */
 
@@ -149,15 +147,11 @@ const Analytics = (props: Props) => {
 				let xAxisIdx: any = xArr.indexOf(
 					moment(evt.start_date).format(dtFormat)
 				);
-				if (xAxisIdx > -1) {
-					yArr[xAxisIdx]++;
-				}
+				if (xAxisIdx > -1) yArr[xAxisIdx]++;
 			}
 		});
 
-		if (yArr.length) {
-			setYAxis(yArr);
-		}
+		if (yArr.length) setYAxis(yArr);
 		/* end: create count y axis */
 	};
 
@@ -165,18 +159,14 @@ const Analytics = (props: Props) => {
 		const arr: any[] = events.filter((evt: any) => {
 			return !evt.archived;
 		});
-		if (arr.length) {
-			setTotalActive(arr.length);
-		}
+		if (arr.length) setTotalActive(arr.length);
 	};
 
 	const getArchived: any = (events: any[]) => {
 		const arr: any[] = events.filter((evt: any) => {
 			return evt.archived;
 		});
-		if (arr.length) {
-			setTotalArchived(arr.length);
-		}
+		if (arr.length) setTotalArchived(arr.length);
 	};
 
 	const getEvents: any = async () => {
@@ -189,9 +179,7 @@ const Analytics = (props: Props) => {
 		const events: any[] = result.data.listEvents.items || [];
 		//console.log('events:', events);
 
-		if (events.length) {
-			setEventCount(events.length);
-		}
+		if (events.length) setEventCount(events.length);
 		const sorted: any[] = sortEventsByDate(events);
 		createAxes(sorted);
 		getActive(events);
@@ -219,24 +207,16 @@ const Analytics = (props: Props) => {
 
 			sessions.map((row: any) => {
 				//console.log('sess:', row);
-				if (row.hall) {
-					hall_count++;
-				}
+				if (row.hall) hall_count++;
 				const stages: any[] = row.stages.items || [];
 				stage_count += stages.length;
 				sessionArr.push(row);
 			});
 		}
 
-		if (session_count) {
-			setSessionCount(session_count);
-		}
-		if (hall_count) {
-			setHallCount(hall_count);
-		}
-		if (stage_count) {
-			setStageCount(stage_count);
-		}
+		if (session_count) setSessionCount(session_count);
+		if (hall_count) setHallCount(hall_count);
+		if (stage_count) setStageCount(stage_count);
 
 		return sessionArr;
 	};
@@ -261,9 +241,8 @@ const Analytics = (props: Props) => {
 			});
 		}
 
-		if (count) {
-			setPresenterCount(count);
-		}
+		if (count) setPresenterCount(count);
+
 		return presenterArr;
 	};
 
@@ -294,9 +273,8 @@ const Analytics = (props: Props) => {
 		//console.log('count:', count);
 		//console.log('medias:', medias);
 
-		if (count) {
-			setSocialMediaCount(count);
-		}
+		if (count) setSocialMediaCount(count);
+
 		return medias;
 	};
 
@@ -327,12 +305,9 @@ const Analytics = (props: Props) => {
 		//console.log('tables_count:', tables_count);
 		//console.log('capacity_count:', capacity_count);
 
-		if (tables_count) {
-			setTableCount(tables_count);
-		}
-		if (capacity_count) {
-			setTableCapacityCount(capacity_count);
-		}
+		if (tables_count) setTableCount(tables_count);
+		if (capacity_count) setTableCapacityCount(capacity_count);
+
 		return tableArr;
 	};
 
@@ -359,9 +334,7 @@ const Analytics = (props: Props) => {
 				tmpSubs.push(row.cognito_sub);
 				try {
 					const cogUser: any = await adminGetUser(row.cognito_sub);
-					if (cogUser) {
-						sub_count++;
-					}
+					if (cogUser) sub_count++;
 				} catch (err: any) {}
 			}
 		}
@@ -369,9 +342,7 @@ const Analytics = (props: Props) => {
 		//console.log('sub_count:', sub_count);
 		//console.log('tmpSubs:', tmpSubs);
 
-		if (sub_count) {
-			setUserCount(sub_count);
-		}
+		if (sub_count) setUserCount(sub_count);
 	};
 
 	const doAsyncs: any = async () => {

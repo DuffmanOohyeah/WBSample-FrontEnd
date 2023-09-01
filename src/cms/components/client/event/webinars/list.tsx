@@ -53,9 +53,7 @@ const ListWebinars: any = (props: Props) => {
 			});
 		});
 
-		if (tmpWebinars.length) {
-			setDataRows(tmpWebinars);
-		}
+		if (tmpWebinars.length) setDataRows(tmpWebinars);
 	};
 
 	useEffect(() => {

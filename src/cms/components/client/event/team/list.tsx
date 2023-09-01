@@ -50,9 +50,7 @@ const ListTeams: any = (props: Props) => {
 		const tmpSubs: string[] = [];
 
 		result.data.listUserEventJoins.items.map((row: any) => {
-			if (tmpSubs.indexOf(row.cognito_sub) == -1) {
-				tmpSubs.push(row.cognito_sub);
-			}
+			if (tmpSubs.indexOf(row.cognito_sub) == -1) tmpSubs.push(row.cognito_sub);
 		});
 
 		//console.log('tmpSubs:', tmpSubs);
@@ -83,11 +81,8 @@ const ListTeams: any = (props: Props) => {
 						case 'sub':
 						case 'email':
 						case 'email_verified':
-							if (atts.Name == 'sub') {
-								userRow.id = atts.Value;
-							} else {
-								userRow[atts.Name] = atts.Value;
-							}
+							if (atts.Name == 'sub') userRow.id = atts.Value;
+							else userRow[atts.Name] = atts.Value;
 							break;
 					}
 				});

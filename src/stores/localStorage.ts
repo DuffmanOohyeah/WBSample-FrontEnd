@@ -49,13 +49,10 @@ const populateCache: any = () => {
 		userLastNameVar(getLocalStorage('userLastName'));
 
 		let client_ids: string = getLocalStorage('userClientIds');
-		if (client_ids) {
-			userClientIdsVar(client_ids.split(','));
-		}
+		if (client_ids) userClientIdsVar(client_ids.split(','));
+
 		let roles: string = getLocalStorage('userRoles');
-		if (roles) {
-			userRolesVar(roles.split(','));
-		}
+		if (roles) userRolesVar(roles.split(','));
 
 		clientIdVar(getLocalStorage('clientId'));
 		clientFullNameVar(getLocalStorage('clientFullName'));

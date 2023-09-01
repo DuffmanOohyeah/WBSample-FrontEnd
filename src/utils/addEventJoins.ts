@@ -16,9 +16,7 @@ const getClientEvents: any = async (clientId: string) => {
 	const eventIds: string[] = [];
 
 	arr.map((row: any) => {
-		if (eventIds.indexOf(row.id) == -1) {
-			eventIds.push(row.id);
-		}
+		if (eventIds.indexOf(row.id) == -1) eventIds.push(row.id);
 	});
 
 	return eventIds;
@@ -45,9 +43,8 @@ const doEventJoins: any = async (clientId: string, eventIds: string[]) => {
 		const joinEvtIds: string[] = [];
 
 		joins.map((row: any) => {
-			if (row.event && joinEvtIds.indexOf(row.event.id) == -1) {
+			if (row.event && joinEvtIds.indexOf(row.event.id) == -1)
 				joinEvtIds.push(row.event.id);
-			}
 		});
 
 		eventIds.filter((id: string) => {

@@ -92,9 +92,7 @@ const Tables = (props: Props) => {
 
 			//console.log('tmpGrps:', tmpGrps);
 
-			if (tmpGrps.length) {
-				setUserGroups(tmpGrps);
-			}
+			if (tmpGrps.length) setUserGroups(tmpGrps);
 		} catch (err: any) {}
 	};
 

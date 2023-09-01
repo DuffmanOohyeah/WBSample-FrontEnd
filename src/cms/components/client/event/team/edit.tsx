@@ -117,11 +117,8 @@ const EditTeam: any = (props: Props) => {
 
 		switch (name) {
 			case 'email':
-				if (value && isEmailValid(value)) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && isEmailValid(value)) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 		}
 	};
@@ -341,13 +338,10 @@ const EditTeam: any = (props: Props) => {
 			//console.log('getAllGroups:', data);
 			const tmpGroups: string[] = [];
 			data.Groups.map((row: any) => {
-				if (row.GroupName !== 'SuperAdmin') {
-					tmpGroups.push(row.GroupName);
-				}
+				if (row.GroupName !== 'SuperAdmin') tmpGroups.push(row.GroupName);
 			});
-			if (tmpGroups.length) {
-				setAllCognitoGroups(tmpGroups);
-			}
+			if (tmpGroups.length) setAllCognitoGroups(tmpGroups);
+
 			//console.log('tmpGroups:', tmpGroups);
 		});
 	};
@@ -355,9 +349,7 @@ const EditTeam: any = (props: Props) => {
 	const updateCognitoGroups: any = () => {
 		const groups: string[] = userCognitoGroups;
 
-		if (isSuperAdmin) {
-			groups.push('SuperAdmin');
-		}
+		if (isSuperAdmin) groups.push('SuperAdmin');
 
 		adminAddUserToGroup(id, groups);
 	};
@@ -368,13 +360,10 @@ const EditTeam: any = (props: Props) => {
 			const tmpGroups: string[] = [];
 			data.Groups.map((row: any) => {
 				tmpGroups.push(row.GroupName);
-				if (row.GroupName == 'SuperAdmin') {
-					setIsSuperAdmin(true);
-				}
+				if (row.GroupName == 'SuperAdmin') setIsSuperAdmin(true);
 			});
-			if (tmpGroups.length) {
-				setUserCognitoGroups(tmpGroups);
-			}
+			if (tmpGroups.length) setUserCognitoGroups(tmpGroups);
+
 			//console.log('tmpGroups:', tmpGroups);
 		});
 	};
@@ -383,9 +372,7 @@ const EditTeam: any = (props: Props) => {
 		if (userInfo.profile_img) {
 			try {
 				const getS3Obj: any = await getStorage(userInfo.profile_img);
-				if (getS3Obj.success) {
-					setOrigImg(getS3Obj.data);
-				}
+				if (getS3Obj.success) setOrigImg(getS3Obj.data);
 			} catch (err: any) {}
 		}
 	};

@@ -109,18 +109,12 @@ const EditPresenter: any = (props: Props) => {
 
 		switch (name) {
 			case 'first_name':
-				if (value && presenterInfo.last_name) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && presenterInfo.last_name) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 			case 'last_name':
-				if (value && presenterInfo.first_name) {
-					setShowSubmit(true);
-				} else {
-					setShowSubmit(false);
-				}
+				if (value && presenterInfo.first_name) setShowSubmit(true);
+				else setShowSubmit(false);
 				break;
 		}
 	};
@@ -167,9 +161,7 @@ const EditPresenter: any = (props: Props) => {
 
 					//setOrigSessionId(row.id);	//set incoming session id (to compare upon save)
 
-					if (pres.profile_img) {
-						setOrigImg(pres.profile_img);
-					}
+					if (pres.profile_img) setOrigImg(pres.profile_img);
 
 					break;
 				}
@@ -228,9 +220,7 @@ const EditPresenter: any = (props: Props) => {
 		);
 		//console.log('getSocialMedias', result);
 		result.data.listPresenterSocialMedias.items.map((row: any) => {
-			if (row.link) {
-				updateSocialMedias(row.site, row.link);
-			}
+			if (row.link) updateSocialMedias(row.site, row.link);
 		});
 	};
 

@@ -4,8 +4,8 @@ import { Button, Grid, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
 	linkRoot: {
 		textTransform: 'none',
-		backgroundColor: '#FFFFFF',
-		color: `#000000`,
+		backgroundColor: '#FFF',
+		color: `#000`,
 		padding: '0.312rem 5rem',
 	},
 }));
